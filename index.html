@@ -15,6 +15,10 @@
 <body>
   <div id="fadein" class="position-fixed top-0 start-0 w-100 h-100 bg-white" style="animation: fadeinall 1s normal 0.3s both;"></div>
   <style>
+    .projects{
+        display:grid;
+        grid-auto-columns: auto;
+    }
     /* For best practice, move CSS below to an external CSS file. */
     @keyframes fadeinall {
     0% {
@@ -54,8 +58,22 @@
   </nav>
   <h1>Hello, world!</h1>
   <p>Hi, das bin ich. <br /> Hier finden Sie einige Infos zu meinen Projekten </p>
+    <div class="projects">
+        <div class="my-projects">
+            <p>Meine Projekte</p>
+            <li></li>
+        </div>
+        <div class="done-projects">
+            <p>fertiggestellte Projekte</p>
+            <li></li>
+        </div>
+        <div class="ongoing-projects">
+            <p>laufende Projekte</p>
+            <li></li>
+        </div>
+    </div>
   <footer>
-    <small>© <script>document.write(new Date().getFullYear())</script> Fibar Schenk. All Rights Reserved.</small>
+    <small>© <script>document.write(new Date().getFullYear())</script> Finbar Schenk. All Rights Reserved.</small>
   </footer>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
