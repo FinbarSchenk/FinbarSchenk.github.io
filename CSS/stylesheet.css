@@ -1,38 +1,101 @@
+main{
+    margin-left: 10%;
+    margin-right: 10%;
+    height: fit-content;
+    position: relative;
+    overflow-y: hidden;
+}
+
+nav{
+    z-index: 2;
+    position: fixed;
+    top:0rem;
+}
+
+.nav-item{
+    margin-left: 10%;
+    #s1{
+        border-color: rgba(red, green, blue, 0);
+    }
+}
+
 .Projekte{
+    position: fixed;
     display:grid;
-    border-color: black;
-    border: 15px;
+    width: 45%;
     .font-head{
         font-size: 20px;
         color:  rgb(29, 152, 253);
     }
     .Inhalt{
-        border: 15px black;
         grid-row: 1 / 5;
         grid-column: 1 / 3;
         display:grid;
         grid-auto-flow: row;
+        width: fit-content;
     }
     .fertig{
-        border: 15px black;
         grid-row: 1 / 5;
         grid-column: 2 / 3;
         display:grid;
         grid-auto-flow: row;
+        width: fit-content;
     }
     .laufend{
-        border-color: black;
-        border: 15px;
         grid-row: 1 / 5;
         grid-column: 3 / 3;
         display:grid;
         grid-auto-flow: row;
+        width: fit-content;
     }
 }
-footer{
-    position: absolute;
-    bottom: 0%;
+
+.beispiel{
+    align-content: center;
+    position: fixed;
+    top: 10%;
+    right:10%;
+    width: 31rem;
+    height:47rem;
+    .stichprobe{
+        background-image: url("../media/Screenshot\ 2024-08-15\ 151900.png");
+        background-size: cover;
+        width: 30rem;
+        height: 45rem;
+        z-index: 1;
+    }
+    .caption{
+        z-index: 1;
+        bottom: 0%;
+        width: fit-content;
+        height: fit-content;
+    }
 }
+
+.footer{
+    bottom: 0rem;
+    position: fixed;
+    z-index: 2;
+}
+
+.start{
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;   
+}
+
+.vita{
+    display: none;
+    position: fixed;
+}
+
+.contact{
+    display: none;
+    position: fixed;
+}
+
 /* For best practice, move CSS below to an external CSS file. */
 @keyframes fadeinall {
 0% {

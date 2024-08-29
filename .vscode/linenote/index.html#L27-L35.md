@@ -1,0 +1,3 @@
+<button class="button" id="previous"><span class="FirstLetter">P</span><span class="RestLetter">revious</span></button>
+                        <button class="button" id="upcoming"><span class="FirstLetter">U</span><span class="RestLetter">pcoming</span></button>
+                        <button class="button" id="prognosis"><span class="FirstLetter">P</span><span class="RestLetter">rognosis</span></button>
