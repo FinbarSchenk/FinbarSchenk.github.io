@@ -57,3 +57,37 @@ document.addEventListener('DOMContentLoaded', () => {
         changeContent('contact');
     });
 });
+
+// Function to show a specific popup
+function showPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    popup.style.display = 'flex';
+}
+
+// Function to close all popups
+function closePopups() {
+    const popups = document.querySelectorAll('.popup-overlay');
+    popups.forEach(popup => {
+        popup.style.display = 'none';
+    });
+}
+
+// Event listeners for buttons
+const buttons = document.querySelectorAll('.popupButton');
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const popupId = button.getAttribute('data-popup');
+        showPopup(popupId);
+    });
+});
+
+// Event listeners for closing the popups by clicking outside the image
+const popups = document.querySelectorAll('.popup-overlay');
+popups.forEach(popup => {
+    popup.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            closePopups();
+        }
+    });
+});
+

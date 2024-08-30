@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="CSS/stylesheet.css">
-  <link rel="script" href="JS/Script.js">
+ 
 </head>
 <body>
   <div id="fadein" class="position-fixed top-0 start-0 w-100 h-100 bg-white" style="animation: fadeinall 1s normal 0.3s both;"></div>
@@ -38,8 +38,8 @@
     </div>
   </nav>
   <main> 
-  <div class="start">
-    <h1>Hello, Visitor!</h1>
+  <div class="start content">
+    <h1>Willkommen auf meiner Seite!</h1>
     <p>Hi, das bin ich. <br /> Hier finden Sie einige Infos zu meinen Projekten </p>
     <div class="vorstellung">
       <div class="Projekte">
@@ -94,38 +94,90 @@
             <span class="checkmark"></span>
           </label>
         </div>
-      </div>
-      <div class="beispiel">
-        <div class="stichprobe">
+        <div class="menu">
+          <!-- Buttons to trigger the pop-ups -->
+          <button class="popupButton" data-popup="popuphwlp">Show Image 1</button>
+          <button class="popupButton" data-popup="popupop">Show Image 2</button>
+          <button class="popupButton" data-popup="popupani">Show Image 3</button>
+          <button class="popupButton" data-popup="popupfg">Show Image 4</button>
         </div>
-        <div class="caption">
-        <p>Informationsseite zu Spiele Remakes in form von einem One-Pager.</p>
+        <div class="beispiel">
+          <div class="stichprobe" id=""></div>
+          <div class="stichprobe"></div>
+          <div class="stichprobe"></div>
+          <div class="stichprobe"></div>
+            <!-- Pop-up overlays and containers -->
+            <div id="popuphwlp" class="popup-overlay">
+              <div class="popup-content">
+                  <img src="media/Screenshot 2024-08-15 151900.png" alt="Image 1">
+              </div>
+            </div>
+
+            <div id="popupop" class="popup-overlay">
+              <div class="popup-content">
+                  <img src="media/Screenshot 2024-08-15 151900.png" alt="Image 2">
+              </div>
+            </div>
+
+            <div id="popupani" class="popup-overlay">
+              <div class="popup-content">
+                  <img src="media/Screenshot 2024-08-15 151900.png" alt="Image 3">
+              </div>
+            </div>
+
+            <div id="popupfg" class="popup-overlay">
+              <div class="popup-content">
+                  <img src="media/Screenshot 2024-08-15 151900.png" alt="Image 4">
+              </div>
+            </div>
+          <div class="caption">
+          <p>Informationsseite zu Spiele Remakes in form von einem One-Pager.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="vita">
+  <div class="vita content">
     <div class="vita-discription">
       <div class="name-author">Finbar Schenk</div>
       <div class="vita-discription-text">Ich bin zurzeit ein Hobby Prgrammierer und Tättowierer.<br></div>
 
     </div>
   </div>
-  <div class="contact">
+  <div class="contact content">
     <div class="contact-discription">
-      <div class="contact-phone">(+49) 178 7261984</div>
-      <div class="contact-e-mail">finbarschenk@gmail.com</div>
+      <h1>Meine Kontaktdaten</h1>
+      <div class="contact-container">
+        <div class="contact-kind">
+          <div class="contact-phone">Telefon:</div>
+          <div class="contact-e-mail">E-mail:</div>
+        </div>
+        <div class="contact-info">
+          <div class="contact-phone">(+49) 0178 7261984</div>
+          <div class="contact-e-mail">finbarschenk@gmail.com</div>
+        </div>
+    </div>
       <div class="contact-social">
-        <div class="Media-grid">
-          <div>
-            <p>Media</p>
-            <li>Instagram</li>
-            <li>Facebook</li>
-            <li>Twitter</li>
+        <div class="media-grid">
+          <div class="media-row">
+            <h1>Media</h1>
+            <p>Instagram</p>
+            <p>Facebook</p>
+            <p>Twitter</p>
           </div>
-          <div class="user">
-            <li><a href="https://www.instagram.com/artsmindisourlife"></a></li>
-          </div></div>
+          <div class="user-row">
+            <h1>User</h1>
+            <form action="https://www.instagram.com/artsmindisourlife/" method="get" style="display: inline;">
+              <button type="submit" class="button">artsmindisourlife / D'Evil_Priest</button>
+            </form>
+            <form action="https://www.example.com" method="get" style="display: inline;">
+              <button type="submit" class="button">Go to Example</button>
+            </form>
+            <form action="https://www.example.com" method="get" style="display: inline;">
+              <button type="submit" class="button">Go to Example</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -142,6 +194,102 @@
       document.getElementById("fadein").remove();
     },1000);
   };
+
+  // JavaScript-Funktion zum Initialisieren der Standardansicht
+  function initializeDefaultView() {
+    // Verstecke die Inhalte von vita und contact
+    const vitaSection = document.querySelector('.vita');
+    const contactSection = document.querySelector('.contact');
+
+    if (vitaSection) {
+        vitaSection.style.display = 'none';
+    }
+
+    if (contactSection) {
+        contactSection.style.display = 'none';
+    }
+
+    // Zeige den Inhalt von start an (standardmäßig ausgewählt)
+    const startSection = document.querySelector('.start');
+    if (startSection) {
+        startSection.style.display = 'block';
+    }
+}
+
+// JavaScript-Funktion zum Austauschen des Inhalts basierend auf der ausgewählten Klasse
+function changeContent(className) {
+    // Verstecke alle Abschnitte
+    const sections = document.querySelectorAll('.start, .vita, .contact');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Zeige den ausgewählten Abschnitt basierend auf der übergebenen Klasse an
+    const selectedSection = document.querySelector(`.${className}`);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+    }
+}
+
+// Event-Listener für Klickereignisse auf die Schaltflächen
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialisiere die Standardansicht
+    initializeDefaultView();
+
+    // Finde die Schaltflächen mit den entsprechenden IDs
+    const startBtn = document.getElementById('start');
+    const vitaBtn = document.getElementById('vita');
+    const contactBtn = document.getElementById('contact');
+
+    // Füge Klickereignis-Handler hinzu, um den Inhalt zu ändern
+    startBtn.addEventListener('click', () => {
+        changeContent('start');
+    });
+
+    vitaBtn.addEventListener('click', () => {
+        changeContent('vita');
+    });
+
+    contactBtn.addEventListener('click', () => {
+        changeContent('contact');
+    });
+});
+
+// Function to show a specific popup
+function showPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    popup.style.display = 'flex';
+}
+
+// Function to close all popups
+function closePopups() {
+    const popups = document.querySelectorAll('.popup-overlay');
+    popups.forEach(popup => {
+        popup.style.display = 'none';
+    });
+}
+
+// Event listeners for buttons
+const buttons = document.querySelectorAll('.popupButton');
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const popupId = button.getAttribute('data-popup');
+        showPopup(popupId);
+    });
+});
+
+// Event listeners for closing the popups by clicking outside the image
+const popups = document.querySelectorAll('.popup-overlay');
+popups.forEach(popup => {
+    popup.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            closePopups();
+        }
+    });
+});
+
+
   </script>
+   <link rel="script" href="media/JS/Script.js">
 </body>
 </html>
